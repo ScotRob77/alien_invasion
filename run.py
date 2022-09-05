@@ -1,9 +1,14 @@
 import random
+import alien
+from countries import country
 
-def select_random_country():
+def select_random_country(country):
     """
     Will randomly select a country from a list of countries
     """
+    return random.choice(country)
+
+print(select_random_country(country))
 
 def create_guess_blanks():
     """
@@ -16,3 +21,6 @@ def letter_guess():
     """
 
 def is_guess_correct():
+    """
+    
+    """
