@@ -10,6 +10,9 @@ def select_random_country(country):
 
 print(select_random_country(country))
 
+remaining_attempts = 6
+letters_guessed = ""
+
 def create_guess_blanks():
     """
     Will create same amount of blanks as the country to guess
