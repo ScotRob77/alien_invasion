@@ -1,3 +1,18 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import random
+
+def select_random_country():
+    """
+    Will randomly select a country from a list of countries
+    """
+
+def create_guess_blanks():
+    """
+    Will create same amount of blanks as the country to guess
+    """
+
+def letter_guess():
+    """
+    Lets the user guess a letter
+    """
+
+def is_guess_correct():
