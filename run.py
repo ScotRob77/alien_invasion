@@ -2,6 +2,14 @@ import random, alien
 from countries import country
 
 
+def intro():
+    """
+    Welcome message introducing the name of the game.
+    Welcome text and instructions for gameplay.
+    Enter name input to start game.
+    """
+
+
 def select_random_country(country):
     """
     Will randomly select a country from a list of countries
@@ -22,7 +30,7 @@ def create_guess_blanks(secret_country):
     """
     Will create same amount of blanks as the country to guess
     """
-    print("_" * len(secret_country))
+    print(" _ " * len(secret_country))
 
 
 secret_country = select_random_country(country)
