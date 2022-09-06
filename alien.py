@@ -12,14 +12,15 @@ def alien_stages(remaining_attempts):
         /    \ 
         q .. p 
          \--/  
-        __||__ """, """
+        __||__ 
+    """, """
          .--.   |V|
         /    \ _| /
         q .. p \ /
          \--/  //
         __||__//
         /.    _/ 
-        """, """
+    """, """
          .--.   |V|
         /    \ _| /
         q .. p \ /
@@ -32,7 +33,7 @@ def alien_stages(remaining_attempts):
       )\
      / |
      |/\
-        """, """
+    """, """
          .--.   |V|
         /    \ _| /
         q .. p \ /
@@ -45,7 +46,7 @@ def alien_stages(remaining_attempts):
       )\|    |
      / || || |
      |/\
-        """, """
+    """, """
          .--.   |V|
         /    \ _| /
         q .. p \ /
@@ -62,7 +63,7 @@ def alien_stages(remaining_attempts):
         \ |
       __/ |
      \____/
-        """, """
+    """, """
          .--.   |V|
         /    \ _| /
         q .. p \ /
@@ -79,4 +80,5 @@ def alien_stages(remaining_attempts):
         \ || /
       __/ || \__
      \____/\____/
-        """]
+    """]
+    return ALIENS[max_attempts - remaining_attempts]
