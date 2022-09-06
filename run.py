@@ -58,6 +58,20 @@ def letter_guess():
     Lets the user guess a letter
     """
 
+def is_guess_correct():
+    """
+    Allows the user to guess a letter
+    """
+    print("Guess a letter of the country you think we will invade..")
+    guess = input()
+    if len(guess) != 1:
+        print("Whoa there Earthling. One letter at a time..!\n")
+    elif guess in already_guessed:
+        print("You've already guessed that letter, choose another\n")
+    elif guess not in alphabet:
+        print("That's not a letter... Try again...\n")
+    else:
+        return guess.upper()
 
 def main():
     intro()
