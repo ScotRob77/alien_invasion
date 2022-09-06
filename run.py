@@ -1,4 +1,4 @@
-import random, alien, string
+import random, alien, string, sys
 from countries import country
 
 
@@ -33,12 +33,7 @@ def select_random_country(country):
 print(select_random_country(country))
 
 remaining_attempts = 6
-
-
-def jls_extract_def():
-    return ""
-
-letters_guessed = jls_extract_def()
+already_guessed = ""
 
 
 def create_guess_blanks(secret_country):
@@ -48,33 +43,43 @@ def create_guess_blanks(secret_country):
     print(" _ " * len(secret_country))
 
 
+intro()
+
+
 secret_country = select_random_country(country)
-# Imports the Alien stage relevant to the game stage
+guess = input("Guess a letter of the country you think we will invade..")
 print(alien.alien_stages(remaining_attempts))
+create_guess_blanks(secret_country)
 
 
-def letter_guess():
-    """
-    Lets the user guess a letter
-    """
+alphabet = list(string.ascii_uppercase)
 
-def is_guess_correct():
+
+def is_guess_correct(guess, secret_country):
     """
     Allows the user to guess a letter
     """
-    print("Guess a letter of the country you think we will invade..")
-    guess = input()
     if len(guess) != 1:
         print("Whoa there Earthling. One letter at a time..!\n")
-    elif guess in already_guessed:
-        print("You've already guessed that letter, choose another\n")
     elif guess not in alphabet:
         print("That's not a letter... Try again...\n")
+        sys.exit()
     else:
-        return guess.upper()
+        if guess in secret_country:
+            return True
+        else:
+            return False
 
-def main():
-    intro()
-    create_guess_blanks(secret_country)
 
-main()
+guess_in_country = is_guess_correct(guess, secret_country)
+
+
+if guess_in_country:
+    if guess in already_guessed:
+        print("You've already guessed that letter, choose another\n".format(guess))
+    else:
+        print("Well Done Earthling..! That letter is part of the country\n".format(guess))
+else:
+    print("Bad Luck foolish Earthling.. That is 1 guess gone".format(guess))
+    remaining_attempts -= 1
+
