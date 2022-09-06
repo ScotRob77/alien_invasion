@@ -1,4 +1,4 @@
-import random, alien
+import random, alien, string
 from countries import country
 
 
@@ -8,6 +8,21 @@ def intro():
     Welcome text and instructions for gameplay.
     Enter name input to start game.
     """
+    print("WELCOME TO ALIEN INVASION..!\n")
+    print("Hello Earthling, I am from the planet Aldaran...\n")
+    print("We have been watching Earth for many years...\n")
+    print("You have not been doing a good job of keeping it safe...\n")
+    print("So we are here to take over...\n")
+    print("You need to stop us from invading. To do this...\n")
+    print("You need to guess which country we intend to invade first.\n")
+    print("But beware. you can only guess wrong 6 times...\n")
+    print("Before you start you need to tell us your name.\n")
+    
+    user = input("What is your name Earthling?\n")
+
+    print(f"Greetings {user}...\n")
+
+    return user
 
 
 def select_random_country(country):
@@ -36,7 +51,6 @@ def create_guess_blanks(secret_country):
 secret_country = select_random_country(country)
 # Imports the Alien stage relevant to the game stage
 print(alien.alien_stages(remaining_attempts))
-create_guess_blanks(secret_country)
 
 
 def letter_guess():
@@ -47,5 +61,23 @@ def letter_guess():
 
 def is_guess_correct():
     """
-    
+    Allows the user to guess a letter
     """
+    print("Guess a letter of the country you think we will invade..")
+    guess = input()
+    if len(guess) != 1:
+        print("Whoa there Earthling. One letter at a time..!\n")
+    elif guess in already_guessed:
+        print("You've already guessed that letter, choose another\n")
+    elif guess not in alphabet:
+        print("That's not a letter... Try again...\n")
+    else:
+        return guess.upper()
+
+
+
+def main():
+    intro()
+    create_guess_blanks(secret_country)
+
+main()
